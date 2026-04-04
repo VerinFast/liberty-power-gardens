@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog — {{ site.title }}</title>
+  <meta name="description" content="News and insights from Liberty Power Gardens.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --flame: #f9e15e;
+      --teal: #7FB2A5;
+      --teal-dark: #5a9485;
+      --gray: #a5afa6;
+      --dark: #1a1a1a;
+      --light: #f5f5f5;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: var(--light);
+    }
+
+    h1, h2 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Nav */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav img { width: 36px; height: 36px; }
+    .nav .nav-brand {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+      margin-right: auto;
+      text-decoration: none;
+      color: var(--dark);
+    }
+
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 0.85rem;
+      font-weight: 500;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 201;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--dark);
+      margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 199;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .mobile-overlay.active { opacity: 1; }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: -280px;
+      width: 280px;
+      height: 100%;
+      background: var(--white);
+      z-index: 200;
+      padding: 5rem 2rem 2rem;
+      transition: right 0.3s ease;
+      box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+    }
+    .mobile-menu.active { right: 0; }
+    .mobile-menu a {
+      display: block;
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* Page content */
+    .page-header {
+      padding: 7rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      color: #666;
+      font-size: 1.05rem;
+    }
+
+    /* Post list */
+    .post-list {
+      padding: 2rem 2rem 4rem;
+    }
+
+    .post-item {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .post-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    .post-date {
+      font-size: 0.75rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+    }
+
+    .post-item h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .post-item p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .post-category {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--teal);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: var(--gray);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.85rem;
+    }
+    footer .name {
+      color: var(--flame);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .mobile-menu, .mobile-overlay { display: block; }
+      .page-header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="{{ '/' | relative_url }}"><img src="{{ '/assets/images/lpg-logo.svg' | relative_url }}" alt="Liberty Power Gardens"></a>
+    <span class="nav-brand"></span>
+    <div class="nav-links">
+      <a href="{{ '/#process' }}">How It Works</a>
+      <a href="{{ '/#values' }}">What We Deliver</a>
+      <a href="{{ '/#approach' }}">Our Approach</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/#contact' }}">Contact</a>
+    </div>
+    <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-overlay" onclick="toggleMenu()"></div>
+  <div class="mobile-menu">
+    <a href="{{ '/#process' }}">How It Works</a>
+    <a href="{{ '/#values' }}">What We Deliver</a>
+    <a href="{{ '/#approach' }}">Our Approach</a>
+    <a href="{{ '/blog/' | relative_url }}">Blog</a>
+    <a href="{{ '/#contact' }}">Contact</a>
+  </div>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>From the Garden</h1>
+      <p>News, insights, and updates from the Liberty Power Gardens team.</p>
+    </div>
+  </div>
+
+  <div class="post-list">
+    <div class="container">
+      {% for post in site.posts %}
+      <a class="post-item" href="{{ post.url | relative_url }}">
+        {% if post.categories.size > 0 %}
+        <span class="post-category">{{ post.categories | first }}</span>
+        {% endif %}
+        <div class="post-date">{{ post.date | date: "%B %-d, %Y" }}</div>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.excerpt | strip_html | truncate: 200 }}</p>
+      </a>
+      {% endfor %}
+
+      <a class="back-link" href="{{ '/' | relative_url }}">&larr; Back to home</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p class="name">Liberty Power Gardens</p>
+      <p>&copy; {{ site.time | date: '%Y' }} Liberty Power Gardens</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.hamburger').classList.toggle('active');
+      document.querySelector('.mobile-menu').classList.toggle('active');
+      document.querySelector('.mobile-overlay').classList.toggle('active');
+      document.body.style.overflow = document.querySelector('.mobile-menu').classList.contains('active') ? 'hidden' : '';
+    }
+  </script>
+
+</body>
+</html>
