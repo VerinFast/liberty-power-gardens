@@ -59,7 +59,7 @@
       gap: 0.75rem;
     }
 
-    .nav img { width: 36px; height: 36px; }
+    .nav img { width: 48px; height: 48px; }
     .nav .nav-brand { font-weight: 700; font-size: 0.95rem; letter-spacing: -0.01em; margin-right: auto; }
 
     .nav-links { display: flex; gap: 1.75rem; align-items: center; }
@@ -242,7 +242,7 @@
     .impact {
       background: var(--dark);
       color: var(--white);
-      padding: 5rem 2rem;
+      padding: 6rem 2rem;
     }
 
     .impact h2 {
@@ -250,34 +250,83 @@
       font-size: 2.2rem;
       font-weight: 400;
       letter-spacing: -0.01em;
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
     }
 
     .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      max-width: 900px;
+      gap: 1.5rem;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
-    .stat { text-align: center; }
+    .stat {
+      text-align: center;
+      background: linear-gradient(145deg, rgba(127,178,165,0.15), rgba(255,255,255,0.04));
+      border: 1px solid rgba(127,178,165,0.25);
+      border-radius: 16px;
+      padding: 2.5rem 1.5rem;
+      opacity: 0;
+      transform: translateY(28px) scale(0.95);
+      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--flame));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .impact.visible .stat::before {
+      opacity: 1;
+    }
+
+    .stat:hover {
+      box-shadow: 0 8px 32px rgba(127,178,165,0.2);
+      border-color: rgba(127,178,165,0.4);
+    }
 
     .stat .number {
-      font-size: 2.8rem;
+      font-size: 3.5rem;
       font-weight: 800;
       display: block;
       line-height: 1.1;
       color: var(--flame);
       letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
     }
 
     .stat .label {
-      font-size: 0.85rem;
-      opacity: 0.8;
-      margin-top: 0.5rem;
-      line-height: 1.5;
+      font-size: 1.05rem;
+      opacity: 0.75;
+      margin-top: 0.75rem;
+      line-height: 1.55;
     }
+
+    .stat .label strong {
+      color: var(--flame);
+      font-weight: 600;
+      opacity: 1;
+    }
+
+    /* Staggered stat entrance */
+    .impact.visible .stat {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .impact.visible .stat:nth-child(1) { transition-delay: 0.1s; }
+    .impact.visible .stat:nth-child(2) { transition-delay: 0.3s; }
+    .impact.visible .stat:nth-child(3) { transition-delay: 0.5s; }
+    .impact.visible .stat:nth-child(4) { transition-delay: 0.7s; }
 
     /* Process section */
     .process {
@@ -587,7 +636,8 @@
       .hero::before { width: 300px; height: 300px; }
       .hero::after { width: 250px; height: 250px; }
       .stats { grid-template-columns: 1fr 1fr; }
-      .stat .number { font-size: 2rem; }
+      .stat .number { font-size: 2.6rem; }
+      .stat { padding: 2rem 1.25rem; }
       .cards { grid-template-columns: 1fr; }
       .approach p { font-size: 1.05rem; }
       .blog-grid { grid-template-columns: 1fr; max-width: 400px; }
@@ -654,19 +704,19 @@
       <div class="stats">
         <div class="stat">
           <span class="number">~40K</span>
-          <span class="label">tons of food waste in Jersey City in 2021 alone</span>
+          <span class="label">tons of <strong>food waste</strong> generated in Jersey City annually</span>
         </div>
         <div class="stat">
           <span class="number">22%</span>
-          <span class="label">of NJ solid waste was food in 2024</span>
+          <span class="label">of all <strong>NJ solid waste</strong> was food as of 2024</span>
         </div>
         <div class="stat">
           <span class="number">20&times;</span>
-          <span class="label">methane's impact vs CO₂ as a greenhouse gas</span>
+          <span class="label">more potent than CO₂ — <strong>methane's</strong> climate impact</span>
         </div>
         <div class="stat">
           <span class="number">95%</span>
-          <span class="label">reduction in environmental damage by capturing methane</span>
+          <span class="label">less <strong>environmental damage</strong> when methane is captured</span>
         </div>
       </div>
     </div>
