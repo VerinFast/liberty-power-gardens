@@ -851,6 +851,18 @@
       background: var(--teal-dark);
     }
 
+    .contact-form button[disabled] {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .contact-thanks {
+      color: var(--teal);
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
     /* Footer */
     footer {
       background: #111;
@@ -1168,7 +1180,7 @@
     <div class="container">
       <h2>Get In Touch</h2>
       <p class="subtitle">Interested in bringing Liberty Power Gardens to your neighborhood? Drop us a line.</p>
-      <form class="contact-form" action="#" method="post">
+      <form id="contact-form" class="contact-form" method="post">
         <div class="contact-row">
           <input type="text" name="name" placeholder="Your name" required>
           <input type="email" name="email" placeholder="Email address" required>
@@ -1220,6 +1232,40 @@
     }, { threshold: 0.25 });
 
     processObserver.observe(processSection);
+
+    // Contact form → Google Sheet (via Apps Script Web App)
+    (function () {
+      const form = document.getElementById('contact-form');
+      if (!form) return;
+
+      // Paste the Apps Script /exec URL here after deploying the Web App.
+      const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyJyojNZU3Z7C2A-q3JjT7BysqEBCAagEdgIoDhPuFaHh8ydkl3uSwBwUVuVGrLYckV8A/exec';
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        if (ENDPOINT.includes('REPLACE_ME')) {
+          alert('Contact form endpoint is not configured yet.');
+          return;
+        }
+        submitBtn.disabled = true;
+        const originalLabel = submitBtn.textContent;
+        submitBtn.textContent = 'Sending…';
+
+        try {
+          await fetch(ENDPOINT, {
+            method: 'POST',
+            body: new FormData(form)
+          });
+          form.innerHTML = '<p class="contact-thanks">Thanks — we got your message and will be in touch soon.</p>';
+        } catch (err) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+          alert('Sorry — something went wrong sending your message. Please email us directly.');
+        }
+      });
+    })();
   </script>
 
 </body>
