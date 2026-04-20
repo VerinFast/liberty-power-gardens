@@ -4,8 +4,8 @@ description: >-
   Community-scale food waste recycling that diverts waste from landfills,
   reduces greenhouse gas emissions, and returns renewable energy and resources
   to the neighborhoods we serve.
-baseurl: "/liberty-power-gardens"
-url: "https://cause-of-a-kind.github.io"
+baseurl: "/"
+url: "https://libertypowergardens.com"
 
 # Build settings
 theme: minima
