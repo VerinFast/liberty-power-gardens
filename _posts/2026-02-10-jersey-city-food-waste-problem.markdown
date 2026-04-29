@@ -5,7 +5,7 @@ date: 2026-02-10
 categories: community
 ---
 
-With 40,000 tons of food waste annually, Jersey City faces a growing challenge. Here's how local biodigestion can make a measurable dent.
+With 40,000 tons of food waste annually, Jersey City faces a growing challenge. Here's how local biodigestion can make a dent.
 
 ## By the numbers
 
