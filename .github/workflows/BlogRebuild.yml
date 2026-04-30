@@ -2,7 +2,7 @@ name: Jekyll Rebuild
 
 on:
   schedule:
-    # Run daily at midnight UTC-8 (8:00 AM UTC)
+    # Run daily at 8:00 AM UTC (4:00 AM EDT)
     - cron: '0 8 * * *'
   # Allow manual trigger from Actions tab
   workflow_dispatch:
@@ -15,29 +15,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-
-      - name: Build site
-        run: bundle exec jekyll build
-
-      - name: Check for changes
+      - name: Check for posts published today
         id: changes
         run: |
-          if git diff --quiet; then
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-          else
+          TODAY=$(date -u +%Y-%m-%d)
+          echo "Checking for posts dated: $TODAY"
+          if find _posts -name "${TODAY}-*" | grep -q .; then
+            echo "Post(s) found for today!"
+            find _posts -name "${TODAY}-*"
             echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "No posts dated today — checking for any unreleased posts..."
+            ls -la _posts/
+            echo "has_changes=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Commit and push if changed
+      - name: Trigger Pages rebuild
         if: steps.changes.outputs.has_changes == 'true'
         run: |
+          # Create an empty commit to trigger GitHub Pages rebuild
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add -A
-          git commit -m "🤖 Auto-rebuild Jekyll site"
+          git commit --allow-empty -m "🤖 Trigger rebuild — new post published $(date -u +%Y-%m-%d)"
           git push
