@@ -15,6 +15,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Build site
+        run: bundle exec jekyll build
+
       - name: Check for posts published today
         id: changes
         run: |
@@ -25,16 +34,15 @@ jobs:
             find _posts -name "${TODAY}-*"
             echo "has_changes=true" >> $GITHUB_OUTPUT
           else
-            echo "No posts dated today — checking for any unreleased posts..."
-            ls -la _posts/
+            echo "No posts dated today."
             echo "has_changes=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Trigger Pages rebuild
+      - name: Commit and push if changed
         if: steps.changes.outputs.has_changes == 'true'
         run: |
-          # Create an empty commit to trigger GitHub Pages rebuild
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit --allow-empty -m "🤖 Trigger rebuild — new post published $(date -u +%Y-%m-%d)"
+          git add -A
+          git commit -m "🤖 Auto-rebuild Jekyll site — new post published $(date -u +%Y-%m-%d)"
           git push
