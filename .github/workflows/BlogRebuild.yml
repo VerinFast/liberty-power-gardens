@@ -2,9 +2,7 @@ name: Jekyll Rebuild
 
 on:
   schedule:
-    # Run daily at 8:00 AM UTC (4:00 AM EDT)
     - cron: '0 8 * * *'
-  # Allow manual trigger from Actions tab
   workflow_dispatch:
 
 jobs:
@@ -24,25 +22,10 @@ jobs:
       - name: Build site
         run: bundle exec jekyll build
 
-      - name: Check for posts published today
-        id: changes
-        run: |
-          TODAY=$(date -u +%Y-%m-%d)
-          echo "Checking for posts dated: $TODAY"
-          if find _posts -name "${TODAY}-*" | grep -q .; then
-            echo "Post(s) found for today!"
-            find _posts -name "${TODAY}-*"
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-          else
-            echo "No posts dated today."
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Commit and push if changed
-        if: steps.changes.outputs.has_changes == 'true'
+      - name: Commit and push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git commit -m "🤖 Auto-rebuild Jekyll site — new post published $(date -u +%Y-%m-%d)"
-          git push
+          git commit -m "🤖 Auto-rebuild Jekyll site $(date -u +%Y-%m-%d)" || true
+          git push || true
