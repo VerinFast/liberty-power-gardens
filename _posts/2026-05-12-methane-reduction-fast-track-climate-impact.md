@@ -14,5 +14,3 @@ The technology works. Diverting food waste from landfills and processing it thro
 That's the thing — this doesn't require massive centralized infrastructure to get started. It requires communities deciding to handle their own organic waste differently. One neighborhood at a time, one town at a time. States like New Jersey are creating the policy framework (A2090 now requires action on food waste diversion), but the real momentum comes from the local level.
 
 Methane reduction is the fastest climate lever we have. And it starts where you live.
-
-*Curious how your community can start diverting organic waste from landfills? [Reach out and talk to us.](https://libertypowergardens.com/)*
