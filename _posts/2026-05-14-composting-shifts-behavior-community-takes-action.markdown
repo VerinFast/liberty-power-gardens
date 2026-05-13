@@ -1,0 +1,17 @@
+---
+layout: post
+title: "From Composting to Digesting: Taking Community Action One Step Further"
+date: 2026-05-14 08:00:00 -0400
+categories: community
+---
+
+It sounds like a small thing: a community composting program. You drop off your food scraps at a drop-site instead of throwing them in the trash. But research from Duke University's Center for Advanced Hindsight, conducted in Durham, North Carolina, reveals something much bigger is happening. When communities come together around composting, it doesn't just divert waste—it fundamentally shifts how people think about their environmental impact. Households in the study sent an average of 5.8 pounds less trash to the landfill *every single week*. And researchers found the effects spilled over: participants began recycling more, wasting less water, and engaging more with their local government. Composting opened a door to thinking differently about shared responsibility.
+
+Those numbers aren't a fluke. In a Gainesville, Florida community composting program, 85.8% of participants reported increased awareness of food waste, and 71.5% said they actually reduced their household waste. They didn't just feel good about participating—they changed their behavior. That's powerful, and it matters, because Americans discard roughly 60 million tons of food waste annually—about 325 pounds per person, per year. But here's the thing about composting: as effective as it is at shifting behavior, it has limits on what it can actually do with that waste.
+
+Composting is aerobic. It needs oxygen, time, and the right carbon-to-nitrogen balance to work well. Meat, dairy, greasy leftovers, cooked food—the messiest, most common kitchen waste—either can't go in a compost pile or slow it down significantly. And while composting prevents food from sitting in a landfill producing uncontrolled methane, the process itself still releases CO₂ and, if managed poorly, methane too. It's a meaningful first step. But once a community has made that behavioral shift—once people are already separating their food waste and thinking about where it goes—the question becomes: what if we could do more with it?
+
+That's where anaerobic digestion picks up. A community-scale digester accepts everything composting can't easily handle: meat scraps, dairy, cooked food, fats, even yard waste. Instead of requiring oxygen and open space, it breaks down organic material in a sealed, controlled environment. The methane that would otherwise escape into the atmosphere is captured and converted into usable energy. And what comes out the other side—digestate—is a nutrient-rich liquid that returns water and fertility directly back into the soil. The same behavioral shift that gets someone to separate their food scraps for composting is the exact same shift that feeds a digester. The habit doesn't change. The impact does.
+
+Think about what that means for a community that's already bought in. The neighborhood that rallied around a composting drop-off site doesn't need to learn a new behavior—they just need a better destination for what they're already collecting. A digester handles a wider range of waste, produces clean energy locally, recycles water through the soil, and eliminates the methane problem rather than just reducing it. It's the same community action, taken one step further. And if the research tells us anything, it's that once people start participating, they don't stop—they look for the next thing they can do.
+
