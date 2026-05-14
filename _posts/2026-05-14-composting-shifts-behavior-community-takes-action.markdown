@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "From Composting to Digesting: Taking Community Action One Step Further"
-date: 2026-05-14 08:00:00 -0400
+date: 2026-05-14
 categories: community
 ---
 
