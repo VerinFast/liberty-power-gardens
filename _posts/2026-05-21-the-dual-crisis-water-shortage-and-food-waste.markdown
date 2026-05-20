@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Dual Crisis: Water Shortage and Food Waste"
-date: 2026-05-21 08:00:00 -0400
+date: 2026-05-21
 categories: sustainability
 ---
 
