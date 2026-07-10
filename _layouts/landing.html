@@ -1165,7 +1165,9 @@
     </div>
   </section>
 
-  <!-- Blog -->
+  
+
+<!-- Blog -->
   <section class="blog fade-section" id="blog">
     <div class="container">
       <h2>From the Garden</h2>
@@ -1191,95 +1193,166 @@
   <!-- Contact -->
   <section class="contact fade-section" id="contact">
     <div class="container">
-      <h2>Get In Touch</h2>
+      <h2>Get in Touch</h2>
       <p class="subtitle">Interested in bringing Liberty Power Gardens to your neighborhood? Drop us a line.</p>
-      <form id="contact-form" class="contact-form" method="post">
-        <div class="contact-row">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="email" name="email" placeholder="Email address" required>
-        </div>
-        <input type="text" name="subject" placeholder="Subject">
-        <textarea name="message" placeholder="Tell us about your community or project..." required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+      
+      <div id = 'crmWebToEntityForm' class = 'zcwf_lblLeft crmWebToEntityForm' style = 'background-color: white;color: black;max-width: 800px; margin: 0 auto;'>
+        <form id = 'webform7425752000000731003' action = 'https://crm.zoho.com/crm/WebToContactForm' name = 'WebToContacts7425752000000731003' method = 'POST' onSubmit = 'javascript:document.charset="UTF-8"; return checkMandatory7425752000000731003()' accept-charset = 'UTF-8'>
+          <input type = 'text' style = 'display:none;' name = 'xnQsjsdp' value = '1c5ffc92fde2ed9f1d25f7e806f8df7e3550547be2a83700c659d10a1a1ae292'>
+          <input type = 'hidden' name = 'zc_gad' id = 'zc_gad' value = ''>
+          <input type = 'text' style = 'display:none;' name = 'xmIwtLD' value = 'ecdf0280e3e3c64992d3daac39a076f54d8ddec599effaae2b8335bf78624fbcb7cdae68c676a2ce9c36e89f37bc8adc'>
+          <input type = 'text' style = 'display:none;' name = 'actionType' value = 'Q29udGFjdHM='>
+          <input type = 'text' style = 'display:none;' name = 'returnURL' value = ''>
+          
+          <style>
+            #crmWebToEntityForm.zcwf_lblLeft { width: 100%; padding: 0; margin: 0 auto; box-sizing: border-box; }
+            #crmWebToEntityForm.zcwf_lblLeft * { box-sizing: border-box; }
+            .zcwf_lblLeft .zcwf_title { display: none; }
+            .zcwf_lblLeft .zcwf_col_lab { display: none; }
+            .zcwf_lblLeft .zcwf_col_help { display: none; }
+            .zcwf_lblLeft .zcwf_col_fld { width: 100%; float: none; padding: 0; margin-bottom: 1rem; position: relative; }
+            .zcwf_lblLeft .zcwf_col_fld input[type=text],
+            .zcwf_lblLeft .zcwf_col_fld input[type=email],
+            .zcwf_lblLeft .zcwf_col_fld textarea { 
+              width: 100%; 
+              border: 2px solid #e0e0e0 !important; 
+              border-radius: 8px; 
+              padding: 0.85rem 1rem; 
+              font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; 
+              font-size: 0.95rem; 
+              float: none;
+              resize: vertical;
+            }
+            .zcwf_lblLeft .zcwf_col_fld textarea { min-height: 120px; }
+            .zcwf_lblLeft .zcwf_col_fld input:focus,
+            .zcwf_lblLeft .zcwf_col_fld textarea:focus { 
+              border-color: #7FB2A5 !important; 
+              outline: none; 
+            }
+            .zcwf_lblLeft .zcwf_row { margin: 0 0 1rem 0; }
+            .zcwf_lblLeft .zcwf_row:after, .zcwf_lblLeft .zcwf_col_fld:after { content: ''; display: table; clear: both; }
+            .zcwf_lblLeft .formsubmit.zcwf_button { 
+              padding: 0.9rem 2rem; 
+              background: #7FB2A5; 
+              color: white; 
+              border: none; 
+              border-radius: 8px; 
+              font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; 
+              font-size: 1rem; 
+              font-weight: 600; 
+              cursor: pointer; 
+              float: none;
+              transition: background 0.2s;
+            }
+            .zcwf_lblLeft .formsubmit.zcwf_button:hover { background: #5a9485; }
+            .zcwf_lblLeft .formsubmit.zcwf_button[disabled] { opacity: 0.6; cursor: default; }
+            .zcwf_lblLeft .zcwf_button:not(.formsubmit) { display: none; }
+            .zcwf_lblLeft .zcwf_privacy { display: none; }
+            .zcwf_lblLeft .wfrm_fld_dpNn { display: none; }
+          </style>
+          
+          <div class = 'zcwf_row'>
+            <div class = 'zcwf_col_fld'>
+              <input type = 'text' id = 'First_Name' aria-required = 'true' aria-label = 'First Name' name = 'First Name' placeholder = 'First Name' aria-valuemax = '40' maxlength = '40'>
+            </div>
+          </div>
+          <div class = 'zcwf_row'>
+            <div class = 'zcwf_col_fld'>
+              <input type = 'text' id = 'Last_Name' aria-required = 'true' aria-label = 'Last Name' name = 'Last Name' placeholder = 'Last Name' aria-valuemax = '80' maxlength = '80'>
+            </div>
+          </div>
+          <div class = 'zcwf_row'>
+            <div class = 'zcwf_col_fld'>
+              <input type = 'text' ftype = 'email' autocomplete = 'false' id = 'Email' aria-required = 'true' aria-label = 'Email' name = 'Email' placeholder = 'Email' aria-valuemax = '100' crmlabel = '' maxlength = '100'>
+            </div>
+          </div>
+          <div class = 'zcwf_row'>
+            <div class = 'zcwf_col_fld'>
+              <textarea style = 'font-family: DM Sans, sans-serif;' aria-multiline = 'true' id = 'Description' aria-required = 'false' aria-label = 'Description' name = 'Description' placeholder = 'Tell us about your organization'></textarea>
+            </div>
+          </div>
+          <input type = 'text' type = 'hidden' style = 'display: none;' name = 'aG9uZXlwb3Q' value = ''/>
+          <div class = 'zcwf_row'>
+            <div class = 'zcwf_col_fld'>
+              <input type = 'submit' id = 'formsubmit' role = 'button' class = 'formsubmit zcwf_button' value = 'Send Message' aria-label = 'Submit' title = 'Submit'>
+            </div>
+          </div>
+          
+          <script>
+            function validateEmail7425752000000731003(){
+              var form = document.forms['WebToContacts7425752000000731003'];
+              var emailFld = form.querySelectorAll('[ftype=email]');
+              for(var i = 0; i < emailFld.length; i++) {
+                var emailVal = emailFld[i].value;
+                if ((emailVal.replace(/^\s+|\s+$/g,'')) .length != 0) {
+                  var atpos = emailVal.indexOf('@');
+                  var dotpos = emailVal.lastIndexOf('.');
+                  if(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
+                    alert('Please enter a valid email address.');
+                    emailFld[i].focus();
+                    return false;
+                  }
+                }
+              }
+              return true;
+            }
+            function checkMandatory7425752000000731003(isAjax){
+              var mndFileds = new Array('First Name', 'Last Name', 'Email');
+              var fldLangVal = new Array('First Name', 'Last Name', 'Email');
+              for (var i = 0; i < mndFileds.length; i++) {
+                var fieldObj = document.forms['WebToContacts7425752000000731003'][mndFileds[i]];
+                if (fieldObj) {
+                  if(((fieldObj.value).replace(/^\s+|\s+$/g,'')) .length == 0) {
+                    alert(fldLangVal[i] + ' cannot be empty.');
+                    fieldObj.focus();
+                    return false;
+                  }
+                }
+              }
+              if (!validateEmail7425752000000731003()) return false;
+              document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
+              return true;
+            }
+          </script>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <p class="name">Liberty Power Gardens</p>
-      <p>&copy; {{ site.time | date: '%Y' }} Liberty Power Gardens</p>
-    </div>
+    <div class="name">Liberty Power Gardens</div>
+    <p>Turning food waste into community power, one neighborhood at a time.</p>
   </footer>
 
   <script>
-    // Hamburger menu toggle
     function toggleMenu() {
-      document.querySelector('.hamburger').classList.toggle('active');
-      document.querySelector('.mobile-menu').classList.toggle('active');
-      document.querySelector('.mobile-overlay').classList.toggle('active');
-      document.body.style.overflow = document.querySelector('.mobile-menu').classList.contains('active') ? 'hidden' : '';
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const overlay = document.querySelector('.mobile-overlay');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
     }
 
-    // Fade-in sections on scroll
-    const fadeObserver = new IntersectionObserver((entries) => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          if (entry.target.classList.contains('process')) {
+            entry.target.classList.add('animated');
+          }
         }
       });
-    }, { threshold: 0.15 });
+    }, observerOptions);
 
-    document.querySelectorAll('.fade-section').forEach(el => fadeObserver.observe(el));
-
-    // Trigger diagram animation when process section enters view
-    const processSection = document.getElementById('process');
-    const processObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animated');
-          processObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.25 });
-
-    processObserver.observe(processSection);
-
-    // Contact form → Google Sheet (via Apps Script Web App)
-    (function () {
-      const form = document.getElementById('contact-form');
-      if (!form) return;
-
-      // Paste the Apps Script /exec URL here after deploying the Web App.
-      const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyJyojNZU3Z7C2A-q3JjT7BysqEBCAagEdgIoDhPuFaHh8ydkl3uSwBwUVuVGrLYckV8A/exec';
-
-      const submitBtn = form.querySelector('button[type="submit"]');
-
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        if (ENDPOINT.includes('REPLACE_ME')) {
-          alert('Contact form endpoint is not configured yet.');
-          return;
-        }
-        submitBtn.disabled = true;
-        const originalLabel = submitBtn.textContent;
-        submitBtn.textContent = 'Sending…';
-
-        try {
-          await fetch(ENDPOINT, {
-            method: 'POST',
-            body: new FormData(form)
-          });
-          form.innerHTML = '<p class="contact-thanks">Thanks — we got your message and will be in touch soon.</p>';
-        } catch (err) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalLabel;
-          alert('Sorry — something went wrong sending your message. Please email us directly.');
-        }
-      });
-    })();
+    document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
+    document.querySelectorAll('.process').forEach(el => observer.observe(el));
   </script>
-
 </body>
 </html>
