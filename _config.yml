@@ -11,3 +11,4 @@ url: "https://libertypowergardens.com"
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
