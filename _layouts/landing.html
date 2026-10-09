@@ -1253,17 +1253,17 @@
           
           <div class = 'zcwf_row'>
             <div class = 'zcwf_col_fld'>
-              <input type = 'text' id = 'First_Name' aria-required = 'true' aria-label = 'First Name' name = 'First Name' placeholder = 'First Name' aria-valuemax = '40' maxlength = '40'>
+              <input type = 'text' id = 'First_Name' autocomplete = 'given-name' required aria-required = 'true' aria-label = 'First Name' name = 'First Name' placeholder = 'First Name' maxlength = '40'>
             </div>
           </div>
           <div class = 'zcwf_row'>
             <div class = 'zcwf_col_fld'>
-              <input type = 'text' id = 'Last_Name' aria-required = 'true' aria-label = 'Last Name' name = 'Last Name' placeholder = 'Last Name' aria-valuemax = '80' maxlength = '80'>
+              <input type = 'text' id = 'Last_Name' autocomplete = 'family-name' required aria-required = 'true' aria-label = 'Last Name' name = 'Last Name' placeholder = 'Last Name' maxlength = '80'>
             </div>
           </div>
           <div class = 'zcwf_row'>
             <div class = 'zcwf_col_fld'>
-              <input type = 'text' ftype = 'email' autocomplete = 'false' id = 'Email' aria-required = 'true' aria-label = 'Email' name = 'Email' placeholder = 'Email' aria-valuemax = '100' crmlabel = '' maxlength = '100'>
+              <input type = 'email' ftype = 'email' autocomplete = 'email' inputmode = 'email' id = 'Email' required aria-required = 'true' aria-label = 'Email' name = 'Email' placeholder = 'Email' maxlength = '100'>
             </div>
           </div>
           <div class = 'zcwf_row'>
@@ -1271,7 +1271,7 @@
               <textarea style = 'font-family: DM Sans, sans-serif;' aria-multiline = 'true' id = 'Description' aria-required = 'false' aria-label = 'Description' name = 'Description' placeholder = 'Tell us about your organization'></textarea>
             </div>
           </div>
-          <input type = 'text' type = 'hidden' style = 'display: none;' name = 'aG9uZXlwb3Q' value = ''/>
+          <input type = 'hidden' name = 'aG9uZXlwb3Q' value = ''/>
           <div class = 'zcwf_row'>
             <div class = 'zcwf_col_fld'>
               <input type = 'submit' id = 'formsubmit' role = 'button' class = 'formsubmit zcwf_button' value = 'Send Message' aria-label = 'Submit' title = 'Submit'>
@@ -1302,7 +1302,8 @@
               for (var i = 0; i < mndFileds.length; i++) {
                 var fieldObj = document.forms['WebToContacts7425752000000731003'][mndFileds[i]];
                 if (fieldObj) {
-                  if(((fieldObj.value).replace(/^\s+|\s+$/g,'')) .length == 0) {
+                  fieldObj.value = (fieldObj.value).replace(/^\s+|\s+$/g,'');
+                  if ((fieldObj.value).length == 0) {
                     alert(fldLangVal[i] + ' cannot be empty.');
                     fieldObj.focus();
                     return false;
